@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="skrill_acquirer_button">
+        <form t-if="acquirer.skrill_merchant_key" t-att-action="tx_url" method="post" target="_self">
+            <input type="hidden" name="pay_to_email" t-att-value="pay_to_email"/>
+            <input type="hidden" name="currency" t-att-value="currency"/>
+            <input type="hidden" name="amount" t-att-value='amount' />
+            <input type="hidden" name="productinfo" t-att-value='productinfo' />
+            <input type="hidden" name="firstname" t-att-value='firstname' />
+            <input type="hidden" name="email" t-att-value='email' />
+            <input type="hidden" name="phone" t-att-value='phone'/>
+            <input type="hidden" name="service_provider" t-att-value='service_provider' />
+            <input type="hidden" name="hash" t-att-value='hash' />
+            <input type="hidden" name="return_url" t-att-value='surl' />
+            <input type="hidden" name="status_url" t-att-value='surl' />
+            <input type="hidden" name="cancel_url" t-att-value='curl' />
+            <input type="hidden" name="transaction_id" t-att-value='transaction_id'/>
+            <!-- submit -->
+            <button type="submit" width="100px" t-att-class="submit_class">
+                <img t-if="not submit_txt" src="/payment_skrill/static/src/img/skrill_icon.png"/>
+                <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+            </button>
+        </form>
+    </template>
+</odoo>
